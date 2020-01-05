@@ -1,0 +1,11 @@
+<<%= form_with(model: [ @comment, @comment.replies.build ], local: true) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :parent_id, value: @comment.id %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
